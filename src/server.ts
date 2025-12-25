@@ -4,9 +4,10 @@ const PORT = 3333;
 
 const app = express();
 
-app.get("/products/:id/:user", (req, res) => {
-  const { id, user } = req.params;
-  res.send(`Produto ${id} do usuário ${user}`);
+app.get("/products", (req, res) => {
+  const { page, limit } = req.query;
+
+  res.send(`pagina ${page} de ${limit}`);
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
