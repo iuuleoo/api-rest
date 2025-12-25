@@ -1,0 +1,10 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Criando API REST com Node.js",
+  "main": "src/server.js",
+  "scripts": {},
+  "author": "Leonardo de Proença",
+  "license": "ISC",
+  "type": "commonjs"
+}
