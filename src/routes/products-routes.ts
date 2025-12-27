@@ -1,20 +1,12 @@
 import { Router } from "express";
 import { myMiddleware } from "../middlewares/my-middleware";
+import { ProductsController } from "../controllers/ProductsController";
 
 const productsRoutes = Router();
+const productsController = new ProductsController();
 
-productsRoutes.get("/:id", (req, res) => {
-  const { page, limit } = req.query;
-  const { id } = req.params;
+productsRoutes.get("/", productsController.index);
 
-  res.send(`pagina ${page} de ${limit} - ID: ${id}`);
-});
-
-productsRoutes.post("/", myMiddleware, (req, res) => {
-  const { name, price } = req.body;
-
-  //res.send(`Produto ${name} custa ${price}`);
-  res.status(201).json({ name, price, user_id: req.user_id });
-});
+productsRoutes.post("/", myMiddleware, productsController.create);
 
 export { productsRoutes };
