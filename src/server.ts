@@ -17,7 +17,7 @@ app.post("/products", myMiddleware, (req, res) => {
   const { name, price } = req.body;
 
   //res.send(`Produto ${name} custa ${price}`);
-  res.status(201).json({ name, price });
+  res.status(201).json({ name, price, user_id: req.user_id });
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
