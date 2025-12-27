@@ -11,8 +11,8 @@ class ProductsController {
 
   create(req: Request, res: Response) {
     const bodyShema = z.object({
-      name: z.string(),
-      price: z.number().nullish(),
+      name: z.string({ required_error: "Name is required!" }),
+      price: z.number({ required_error: "Price is required!" }),
     });
 
     const { name, price } = bodyShema.parse(req.body);
