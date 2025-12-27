@@ -5,7 +5,7 @@ const PORT = 3333;
 
 const app = express();
 app.use(express.json());
-app.use(myMiddleware);
+// app.use(myMiddleware);
 
 app.get("/products", (req, res) => {
   const { page, limit } = req.query;
@@ -13,7 +13,7 @@ app.get("/products", (req, res) => {
   res.send(`pagina ${page} de ${limit}`);
 });
 
-app.post("/products", (req, res) => {
+app.post("/products", myMiddleware, (req, res) => {
   const { name, price } = req.body;
 
   //res.send(`Produto ${name} custa ${price}`);
