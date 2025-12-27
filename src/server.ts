@@ -14,7 +14,8 @@ app.get("/products", (req, res) => {
 app.post("/products", (req, res) => {
   const { name, price } = req.body;
 
-  res.send(`Produto ${name} custa ${price}`);
+  //res.send(`Produto ${name} custa ${price}`);
+  res.status(201).json({ name, price });
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
